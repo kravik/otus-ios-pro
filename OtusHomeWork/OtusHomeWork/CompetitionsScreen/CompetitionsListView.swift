@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Networking
 
 struct CompetitionsListView: View {
     @EnvironmentObject var viewModel: CompetitionsListViewModel
@@ -36,7 +37,7 @@ struct CompetitionCell: View {
             Text(item.name)
                 .font(.headline)
                 .foregroundColor(.primary)
-            Text(item.area)
+            Text(item.area?.name ?? "")
                 .font(.callout)
                 .foregroundColor(.secondary)
         }

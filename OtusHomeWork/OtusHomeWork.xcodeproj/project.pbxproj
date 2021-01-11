@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,9 +18,10 @@
 		B07C4B7E25895201005D01F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B07C4B7D25895201005D01F4 /* Assets.xcassets */; };
 		B07C4B8125895201005D01F4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B07C4B8025895201005D01F4 /* Preview Assets.xcassets */; };
 		B07C4B8A258954FD005D01F4 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C4B89258954FD005D01F4 /* Models.swift */; };
-		B07C4B8D25895997005D01F4 /* FootballAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C4B8C25895997005D01F4 /* FootballAPI.swift */; };
+		B07C4B8D25895997005D01F4 /* FootballAPI+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C4B8C25895997005D01F4 /* FootballAPI+Extensions.swift */; };
 		B07C4B952589613B005D01F4 /* NewsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C4B942589613B005D01F4 /* NewsScreen.swift */; };
 		B07C4B98258963BE005D01F4 /* CompetitionsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C4B97258963BE005D01F4 /* CompetitionsScreen.swift */; };
+		B0B448DD25AC384300FCD9B9 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = B0B448DC25AC384300FCD9B9 /* Networking */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,9 +38,10 @@
 		B07C4B8025895201005D01F4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B07C4B8225895201005D01F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B07C4B89258954FD005D01F4 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
-		B07C4B8C25895997005D01F4 /* FootballAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootballAPI.swift; sourceTree = "<group>"; };
+		B07C4B8C25895997005D01F4 /* FootballAPI+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FootballAPI+Extensions.swift"; sourceTree = "<group>"; };
 		B07C4B942589613B005D01F4 /* NewsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsScreen.swift; sourceTree = "<group>"; };
 		B07C4B97258963BE005D01F4 /* CompetitionsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionsScreen.swift; sourceTree = "<group>"; };
+		B0B448D725AB9C2600FCD9B9 /* Networking */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Networking; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0B448DD25AC384300FCD9B9 /* Networking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +79,7 @@
 			children = (
 				B07C4B78258951FE005D01F4 /* OtusHomeWork */,
 				B07C4B77258951FE005D01F4 /* Products */,
+				B0B448DB25AC384300FCD9B9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,6 +94,7 @@
 		B07C4B78258951FE005D01F4 /* OtusHomeWork */ = {
 			isa = PBXGroup;
 			children = (
+				B0B448D625AB9AF100FCD9B9 /* Modules */,
 				B07C4B79258951FE005D01F4 /* OtusHomeWorkApp.swift */,
 				B07C4B7B258951FE005D01F4 /* RootView.swift */,
 				B07C4B9025895A8A005D01F4 /* Data */,
@@ -115,7 +120,7 @@
 		B07C4B9025895A8A005D01F4 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				B07C4B8C25895997005D01F4 /* FootballAPI.swift */,
+				B07C4B8C25895997005D01F4 /* FootballAPI+Extensions.swift */,
 				B07C4B89258954FD005D01F4 /* Models.swift */,
 			);
 			path = Data;
@@ -139,6 +144,21 @@
 			path = CompetitionsScreen;
 			sourceTree = "<group>";
 		};
+		B0B448D625AB9AF100FCD9B9 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				B0B448D725AB9C2600FCD9B9 /* Networking */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		B0B448DB25AC384300FCD9B9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -155,6 +175,9 @@
 			dependencies = (
 			);
 			name = OtusHomeWork;
+			packageProductDependencies = (
+				B0B448DC25AC384300FCD9B9 /* Networking */,
+			);
 			productName = OtusHomeWork;
 			productReference = B07C4B76258951FE005D01F4 /* OtusHomeWork.app */;
 			productType = "com.apple.product-type.application";
@@ -218,7 +241,7 @@
 				B03260F0258FE907009F8DAE /* TeamsScreen.swift in Sources */,
 				B03260F4258FE936009F8DAE /* TeamsView.swift in Sources */,
 				B07C4B98258963BE005D01F4 /* CompetitionsScreen.swift in Sources */,
-				B07C4B8D25895997005D01F4 /* FootballAPI.swift in Sources */,
+				B07C4B8D25895997005D01F4 /* FootballAPI+Extensions.swift in Sources */,
 				B07C4B7A258951FE005D01F4 /* OtusHomeWorkApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -406,6 +429,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B0B448DC25AC384300FCD9B9 /* Networking */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Networking;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B07C4B6E258951FE005D01F4 /* Project object */;
 }

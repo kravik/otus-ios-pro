@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Networking
 
 struct TeamsView: View {
     @ObservedObject var teamsViewModel: TeamsViewModel
