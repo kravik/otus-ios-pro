@@ -13,9 +13,9 @@ public struct Person: Codable {
     public var id: Int
     public var name: String
     public var role: String
-    public var nationality: String
+    public var nationality: String?
 
-    public init(id: Int, name: String, role: String, nationality: String) {
+    public init(id: Int, name: String, role: String, nationality: String? = nil) {
         self.id = id
         self.name = name
         self.role = role

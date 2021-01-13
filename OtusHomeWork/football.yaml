@@ -270,7 +270,6 @@ components:
       - id
       - name
       - role
-      - nationality
       properties:
         id:
           type: integer

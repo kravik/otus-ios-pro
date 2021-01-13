@@ -18,7 +18,7 @@ struct TeamsView: View {
             }
         }.onAppear {
             teamsViewModel.load()
-        }.navigationTitle("Teams of \(teamsViewModel.competition.name)")
+        }
     }
 }
 

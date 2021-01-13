@@ -15,7 +15,7 @@ struct CompetitionsListView: View {
         List {
             ForEach(viewModel.competitions) { item in
                 NavigationLink(
-                    destination: TeamsScreen(teamsViewModel: TeamsViewModel(competition: item)),
+                    destination: CompetitionView(viewModel: CompetitionViewModel(competition: item)),
                     tag: item.id,
                     selection: $viewModel.selection
                 ) {

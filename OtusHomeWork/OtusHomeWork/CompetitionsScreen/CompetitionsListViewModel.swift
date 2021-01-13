@@ -13,7 +13,7 @@ final class CompetitionsListViewModel: ObservableObject {
     @Published private(set) var competitions: [Competition] = []
 
     func load() {
-        FootballAPI.getCompetitions(areas: nil, plan: "TIER_ONE") { [weak self] (response, error) in
+        FootballAPI.getCompetitionsAuthorized(areas: nil, plan: "TIER_ONE") { [weak self] (response, error) in
             guard let self = self, let competitions = response?.competitions else {
                 return
             }
