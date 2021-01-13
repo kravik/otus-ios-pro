@@ -14,15 +14,6 @@ struct NewsScreen: View {
     var body: some View {
         VStack {
             Text("News").font(Font.headline)
-            Button("Open Serie A") {
-                router.selectedTab = .competitions
-                сompetitionsListViewModel.selection = 2019
-            }
-            .frame(maxWidth: .infinity)
-            .padding()
-            .background(Color.blue)
-            .foregroundColor(Color.white)
-            .cornerRadius(5)
         }
         .padding()
     }

@@ -11,7 +11,7 @@ import Networking
 final class CompetitionViewModel: ObservableObject {
 
     enum Segment: Int, CaseIterable {
-        case teams, matches
+        case matches, teams
 
         var name: String {
             switch self {
@@ -24,7 +24,7 @@ final class CompetitionViewModel: ObservableObject {
     }
 
     let competition: Competition
-    @Published var selectedSegment: Segment = .teams
+    @Published var selectedSegment: Segment = .matches
 
     init(competition: Competition) {
         self.competition = competition

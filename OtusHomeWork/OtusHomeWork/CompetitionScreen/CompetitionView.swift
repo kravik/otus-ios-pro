@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import UIComponents
 
 struct CompetitionView: View {
     @ObservedObject var viewModel: CompetitionViewModel
+    @EnvironmentObject var navControllerViewModel: NavControllerViewModel
 
     private let teamsViewModel: TeamsViewModel
     private let matchesViewModel: MatchesListViewModel
@@ -38,7 +40,9 @@ struct CompetitionView: View {
             case .matches:
                 MatchesView(viewModel: matchesViewModel)
             }
-        }.navigationTitle(viewModel.competition.name)
+        }.onAppear() {
+            navControllerViewModel.navigationTitle = viewModel.competition.name
+        }
     }
 }
 

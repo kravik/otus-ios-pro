@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Networking
+import UIComponents
 
 struct MatchesView: View {
     @ObservedObject var viewModel: MatchesListViewModel
@@ -14,11 +15,14 @@ struct MatchesView: View {
     var body: some View {
         List {
             ForEach(viewModel.matches) { item in
-                MatchCell(item: item).onAppear {
-                    if viewModel.matches.isLast(item) {
-                        viewModel.loadNext()
+                NavPushButton(destination: MatchView(match: item)) {
+                    MatchCell(item: item).onAppear {
+                        if viewModel.matches.isLast(item) {
+                            viewModel.loadNext()
+                        }
                     }
                 }
+
             }
         }.onAppear {
             viewModel.loadNext()
@@ -36,28 +40,18 @@ struct MatchCell: View {
     }()
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            Text("\(item.homeTeam?.name ?? "") - \(item.awayTeam?.name ?? "")")
-                .font(.headline)
-                .foregroundColor(.primary)
-            Text("\(item.utcDate, formatter: Self.dateFormatter)")
-                .font(.callout)
-                .foregroundColor(.secondary)
+        HStack {
+            VStack(alignment: .leading, spacing: 4) {
+                Text("\(item.homeTeam?.name ?? "") - \(item.awayTeam?.name ?? "")")
+                    .font(.headline)
+                    .foregroundColor(.primary)
+                Text("\(item.utcDate, formatter: Self.dateFormatter)")
+                    .font(.callout)
+                    .foregroundColor(.secondary)
+            }
+            .frame(minHeight: 60)
+            Spacer()
         }
-        .frame(minHeight: 60)
-    }
-}
-
-extension RandomAccessCollection where Self.Element: Identifiable {
-
-    func isLast(_ item: Element) -> Bool {
-        guard isEmpty == false else {
-            return false
-        }
-        guard let itemIndex = lastIndex(where: { AnyHashable($0.id) == AnyHashable(item.id) }) else {
-            return false
-        }
-        return distance(from: itemIndex, to: endIndex) == 1
     }
 }
 
