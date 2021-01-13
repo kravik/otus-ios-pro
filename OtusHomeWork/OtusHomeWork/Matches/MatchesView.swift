@@ -51,6 +51,7 @@ struct MatchCell: View {
             }
             .frame(minHeight: 60)
             Spacer()
+            Image(systemName: "chevron.right")
         }
     }
 }

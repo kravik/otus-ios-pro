@@ -41,8 +41,6 @@ struct CompetitionCell: View {
                     .font(.callout)
                     .foregroundColor(.secondary)
             }
-            .background(Color.red)
-            //.frame(maxWidth: .infinity)
             Spacer()
             Image(systemName: "chevron.right")
         }
