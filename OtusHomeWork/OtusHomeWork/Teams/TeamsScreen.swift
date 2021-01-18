@@ -12,5 +12,6 @@ struct TeamsScreen: View {
 
     var body: some View {
         TeamsView(teamsViewModel: teamsViewModel)
+            .navigationTitle("Teams of \(teamsViewModel.competition.name)")
     }
 }

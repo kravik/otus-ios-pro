@@ -6,24 +6,24 @@
 //
 
 import SwiftUI
+import Networking
+import UIComponents
 
 struct CompetitionsListView: View {
     @EnvironmentObject var viewModel: CompetitionsListViewModel
+    @EnvironmentObject var navControllerViewModel: NavControllerViewModel
 
     var body: some View {
         List {
             ForEach(viewModel.competitions) { item in
-                NavigationLink(
-                    destination: TeamsScreen(teamsViewModel: TeamsViewModel(competition: item)),
-                    tag: item.id,
-                    selection: $viewModel.selection
-                ) {
+                NavPushButton(destination: CompetitionView(viewModel: CompetitionViewModel(competition: item))) {
                     CompetitionCell(item: item)
                 }
             }
         }.onAppear {
             viewModel.load()
-        }.navigationTitle("Competitions")
+            navControllerViewModel.navigationTitle = "Competitions"
+        }
     }
 }
 
@@ -32,15 +32,19 @@ struct CompetitionCell: View {
     let item: Competition
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            Text(item.name)
-                .font(.headline)
-                .foregroundColor(.primary)
-            Text(item.area)
-                .font(.callout)
-                .foregroundColor(.secondary)
+        HStack {
+            VStack(alignment: .leading, spacing: 4) {
+                Text(item.name)
+                    .font(.headline)
+                    .foregroundColor(Color.black)
+                Text(item.area?.name ?? "")
+                    .font(.callout)
+                    .foregroundColor(.secondary)
+            }
+            Spacer()
+            Image(systemName: "chevron.right")
         }
-        .frame(minHeight: 60)
+        .frame(maxWidth: .infinity, minHeight: 60)
     }
 }
 

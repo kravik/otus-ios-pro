@@ -6,13 +6,12 @@
 //
 
 import SwiftUI
+import UIComponents
 
 struct CompetitionsScreen: View {
 
-    @EnvironmentObject var competitionsListViewModel: CompetitionsListViewModel
-
     var body: some View {
-        NavigationView {
+        NavControllerView(transition: .custom(.moveAndFade)) {
             CompetitionsListView()
         }
     }

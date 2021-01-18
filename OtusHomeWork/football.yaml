@@ -1,0 +1,309 @@
+openapi: 3.0.3
+info:
+  description: This is a simple API
+  version: 1.0.0
+  title: Football Data API
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+servers:
+- url: http://api.football-data.org/v2
+
+tags:
+- name: football
+  description: Football
+
+paths:
+  /competitions/:
+    get:
+      tags:
+      - football
+      operationId: getCompetitions
+      summary: searches competitions
+      parameters:
+      - in: query
+        name: areas
+        description: Areas
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: plan
+        description: Plan - TIER_ONE
+        required: false
+        schema:
+          type: string
+      responses:
+        200:
+          description: search results matching criteria
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 100
+                  competitions:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Competition'
+        400:
+          description: bad input parameter
+  /competitions/{competitionId}/matches:
+    get:
+      tags:
+      - football
+      operationId: getMatches
+      parameters:
+      - in: path
+        name: competitionId
+        description: competitionId
+        required: true
+        schema:
+          type: integer
+      - in: query
+        name: dateFrom
+        schema:
+          type: string
+      - in: query
+        name: dateTo
+        schema:
+          type: string
+      - in: query
+        name: stage
+        schema:
+          type: string
+      - in: query
+        name: status
+        schema:
+          type: string
+      - in: query
+        name: matchday
+        schema:
+          type: integer
+      - in: query
+        name: group
+        schema:
+          type: string
+      - in: query
+        name: season
+        schema:
+          type: integer
+      responses:
+        200:
+          description: search matches
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 100
+                  matches:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Match'
+                  competition:
+                      $ref: '#/components/schemas/Competition'
+        400:
+          description: bad input parameter
+
+  /competitions/{competitionId}/teams:
+    get:
+      tags:
+      - football
+      operationId: getTeams
+      parameters:
+      - in: path
+        name: competitionId
+        description: competitionId
+        required: true
+        schema:
+          type: integer
+      - in: query
+        name: stage
+        schema:
+          type: string
+      - in: query
+        name: season
+        schema:
+          type: integer
+      responses:
+        200:
+          description: search teams
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 100
+                  teams:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Team'
+                  competition:
+                      $ref: '#/components/schemas/Competition'
+        400:
+          description: bad input parameter
+
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Auth-Token
+  schemas:
+    Competition:
+      type: object
+      required:
+      - id
+      - name
+      - plan
+      - lastUpdated
+      properties:
+        id:
+          type: integer
+          example: 2000
+        name:
+          type: string
+          example: Copa Liga Profesional
+        lastUpdated:
+          type: string
+          format: date-time
+          example: 2016-08-29T09:12:33.001Z
+        plan:
+          type: string
+          example: TIER_FOUR
+        area:
+          $ref: '#/components/schemas/Area'
+        currentSeason:
+          $ref: '#/components/schemas/Season'
+    Area:
+      required:
+      - id
+      - name
+      properties:
+        id:
+          type: integer
+          example: 2001
+        name:
+          type: string
+          example: Africa
+        countryCode:
+          type: string
+          example: AFR
+    Season:
+      required:
+      - id
+      - startDate
+      - endDate
+      properties:
+        id:
+          type: integer
+          example: 2001
+        startDate:
+          type: string
+          example: 2019-09-04
+        endDate:
+          type: string
+          example: 2019-09-04
+        currentMatchday:
+          type: integer
+          example: 8888
+    Match:
+      required:
+      - id
+      - season
+      - utcDate
+      - status
+      properties:
+        id:
+          type: integer
+          example: 2001
+        season:
+          $ref: '#/components/schemas/Season'
+        utcDate:
+          type: string
+          format: date-time
+        status:
+          type: string
+          example: FINISHED
+        matchday:
+          type: integer
+        stage:
+          type: string
+          example: REGULAR_SEASON
+        group:
+          type: string
+          example: Regular Season
+        lastUpdated:
+          type: string
+          format: date-time
+        homeTeam:
+          $ref: '#/components/schemas/Team'
+        awayTeam:
+          $ref: '#/components/schemas/Team'
+        referees:
+          type: array
+          items:
+            $ref: '#/components/schemas/Person'
+        score:
+          $ref: '#/components/schemas/Score'
+    Team:
+      required:
+      - id
+      - name
+      properties:
+        id:
+          type: integer
+          example: 123
+        name:
+          type: string
+          example: SD Eibar 
+    Person:
+      required:
+      - id
+      - name
+      - role
+      properties:
+        id:
+          type: integer
+          example: 57921
+        name:
+          type: string
+          example: Valentín Pizarro 
+        role:
+          type: string
+          example: REF 
+        nationality:
+          type: string
+          example: Spain
+    Score:
+      properties:
+        winner:
+          type: string
+          example: HOME_TEAM
+        duration:
+          type: string
+          example: REGULAR
+        fullTime:
+          $ref: '#/components/schemas/ScoreResult'
+        halfTime:
+          $ref: '#/components/schemas/ScoreResult'
+        extraTime:
+          $ref: '#/components/schemas/ScoreResult'
+        penalties:
+          $ref: '#/components/schemas/ScoreResult'
+    ScoreResult:
+      properties:
+        homeTeam:
+          type: integer
+          example: 1
+        awayTeam:
+          type: integer
+          example: 2

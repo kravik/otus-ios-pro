@@ -13,7 +13,7 @@ final class Router: ObservableObject {
         case news, competitions, profile
     }
 
-    @Published var selectedTab: Tab = .news
+    @Published var selectedTab: Tab = .competitions
 }
 
 struct RootView: View {

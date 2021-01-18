@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import Networking
+import UIComponents
 
 struct TeamsView: View {
     @ObservedObject var teamsViewModel: TeamsViewModel
@@ -13,11 +15,13 @@ struct TeamsView: View {
     var body: some View {
         List {
             ForEach(teamsViewModel.teams) { item in
-                TeamCell(item: item)
+                NavPushButton(destination: TeamView(team: item)) {
+                    TeamCell(item: item)
+                }
             }
         }.onAppear {
             teamsViewModel.load()
-        }.navigationTitle("Teams of \(teamsViewModel.competition.name)")
+        }
     }
 }
 
@@ -25,8 +29,12 @@ struct TeamCell: View {
     let item: Team
 
     var body: some View {
-        Text(item.name)
-            .font(.headline)
-            .foregroundColor(.primary).frame(minHeight: 60)
+        HStack {
+            Text(item.name)
+                .font(.headline)
+                .foregroundColor(.primary).frame(minHeight: 60)
+            Spacer()
+            Image(systemName: "chevron.right")
+        }
     }
 }

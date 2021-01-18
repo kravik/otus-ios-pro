@@ -6,12 +6,18 @@
 //
 
 import Foundation
+import Networking
 
 final class CompetitionsListViewModel: ObservableObject {
     @Published var selection: Int?
     @Published private(set) var competitions: [Competition] = []
 
     func load() {
-        competitions = FootballAPI.getCompetitions()
+        FootballAPI.getCompetitionsAuthorized(areas: nil, plan: "TIER_ONE") { [weak self] (response, error) in
+            guard let self = self, let competitions = response?.competitions else {
+                return
+            }
+            self.competitions = competitions
+        }
     }
 }
