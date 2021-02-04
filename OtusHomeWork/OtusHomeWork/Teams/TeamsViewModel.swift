@@ -6,26 +6,30 @@
 //
 
 import Foundation
-import Networking
+import Combine
+import FootballService
 
 final class TeamsViewModel: ObservableObject {
     let competition: Competition
-
     @Published private(set) var teams: [Team] = []
     @Published private(set) var isPageLoading: Bool = false
 
-    init(competition: Competition) {
+    private let footballService: FootballService
+    private var store = Set<AnyCancellable>()
+
+    init(footballService: FootballService, competition: Competition) {
+        self.footballService = footballService
         self.competition = competition
     }
 
     func load() {
         isPageLoading = true
-        FootballAPI.getTeamsAuthorized(competitionId: competition.id) { [weak self] response, error in
-            guard let self = self, let results = response?.teams else {
-                return
-            }
-            self.teams.append(contentsOf: results)
-            self.isPageLoading = false
-        }
+        footballService
+            .teams(competition: competition)
+            .receive(on: DispatchQueue.main)
+            .sink { (_) in } receiveValue: { teams in
+                self.teams.append(contentsOf: teams)
+                self.isPageLoading = false
+            }.store(in: &store)
     }
 }

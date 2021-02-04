@@ -10,9 +10,11 @@ import UIComponents
 
 struct CompetitionsScreen: View {
 
+    let dependeciesContainer: DependeciesContainer
+
     var body: some View {
         NavControllerView(transition: .custom(.moveAndFade)) {
-            CompetitionsListView()
+            CompetitionsListView(dependeciesContainer: dependeciesContainer)
         }
     }
 }

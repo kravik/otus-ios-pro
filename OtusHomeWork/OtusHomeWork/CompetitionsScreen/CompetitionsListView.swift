@@ -6,17 +6,29 @@
 //
 
 import SwiftUI
-import Networking
+import FootballService
 import UIComponents
 
 struct CompetitionsListView: View {
-    @EnvironmentObject var viewModel: CompetitionsListViewModel
     @EnvironmentObject var navControllerViewModel: NavControllerViewModel
+    @ObservedObject var viewModel: CompetitionsListViewModel
+
+    private let dependeciesContainer: DependeciesContainer
+
+    init(dependeciesContainer: DependeciesContainer) {
+        self.dependeciesContainer = dependeciesContainer
+        self.viewModel = dependeciesContainer.makeCompetitionsListViewModel()
+    }
 
     var body: some View {
         List {
             ForEach(viewModel.competitions) { item in
-                NavPushButton(destination: CompetitionView(viewModel: CompetitionViewModel(competition: item))) {
+                NavPushButton(
+                    destination: CompetitionView(
+                        competition: item,
+                        dependeciesContainer: dependeciesContainer
+                    )
+                ) {
                     CompetitionCell(item: item)
                 }
             }
@@ -45,11 +57,5 @@ struct CompetitionCell: View {
             Image(systemName: "chevron.right")
         }
         .frame(maxWidth: .infinity, minHeight: 60)
-    }
-}
-
-struct CompetitionsListView_Previews: PreviewProvider {
-    static var previews: some View {
-        CompetitionsListView().environmentObject(CompetitionsListViewModel())
     }
 }

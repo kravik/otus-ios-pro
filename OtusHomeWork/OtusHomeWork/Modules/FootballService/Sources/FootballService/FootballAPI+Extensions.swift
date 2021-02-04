@@ -8,10 +8,6 @@
 import Foundation
 import Networking
 
-extension Competition: Identifiable {}
-extension Team: Identifiable {}
-extension Match: Identifiable {}
-
 let authHeaderName = "X-Auth-Token"
 let authToken = "4aa74b1690b84365a971a1b7286fcb2e"
 

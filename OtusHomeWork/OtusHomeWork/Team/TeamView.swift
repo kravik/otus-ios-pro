@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import Networking
+import FootballService
 import UIComponents
 
 struct TeamView: View {
@@ -53,11 +53,5 @@ struct TeamView: View {
                 isAtMaxRotation.toggle()
             }
         }
-    }
-}
-
-struct TeamView_Previews: PreviewProvider {
-    static var previews: some View {
-        TeamView(team: Team(id: 1, name: "Team 1"))
     }
 }

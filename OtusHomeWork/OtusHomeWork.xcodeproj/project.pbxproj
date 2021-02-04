@@ -7,17 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B0117A8A25CB3704004C1486 /* DependeciesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0117A8925CB3704004C1486 /* DependeciesContainer.swift */; };
 		B03260E5258FA8D2009F8DAE /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03260E4258FA8D2009F8DAE /* ProfileScreen.swift */; };
 		B03260E8258FDF81009F8DAE /* CompetitionsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03260E7258FDF81009F8DAE /* CompetitionsListView.swift */; };
 		B03260EB258FE088009F8DAE /* CompetitionsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03260EA258FE088009F8DAE /* CompetitionsListViewModel.swift */; };
 		B03260F0258FE907009F8DAE /* TeamsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03260EF258FE907009F8DAE /* TeamsScreen.swift */; };
 		B03260F4258FE936009F8DAE /* TeamsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03260F3258FE936009F8DAE /* TeamsView.swift */; };
 		B03260F7258FE980009F8DAE /* TeamsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03260F6258FE980009F8DAE /* TeamsViewModel.swift */; };
+		B0532F0F25C3EC1000BCD115 /* FootballService in Frameworks */ = {isa = PBXBuildFile; productRef = B0532F0E25C3EC1000BCD115 /* FootballService */; };
+		B0532F1825C44E9A00BCD115 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0532F1725C44E9900BCD115 /* ServiceLocator.swift */; };
 		B07C4B7A258951FE005D01F4 /* OtusHomeWorkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C4B79258951FE005D01F4 /* OtusHomeWorkApp.swift */; };
 		B07C4B7C258951FE005D01F4 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C4B7B258951FE005D01F4 /* RootView.swift */; };
 		B07C4B7E25895201005D01F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B07C4B7D25895201005D01F4 /* Assets.xcassets */; };
 		B07C4B8125895201005D01F4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B07C4B8025895201005D01F4 /* Preview Assets.xcassets */; };
-		B07C4B8D25895997005D01F4 /* FootballAPI+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C4B8C25895997005D01F4 /* FootballAPI+Extensions.swift */; };
 		B07C4B952589613B005D01F4 /* NewsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C4B942589613B005D01F4 /* NewsScreen.swift */; };
 		B07C4B98258963BE005D01F4 /* CompetitionsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C4B97258963BE005D01F4 /* CompetitionsScreen.swift */; };
 		B07E82DB25AF1F7C009399AA /* UIComponents in Frameworks */ = {isa = PBXBuildFile; productRef = B07E82DA25AF1F7C009399AA /* UIComponents */; };
@@ -32,19 +34,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B0117A8925CB3704004C1486 /* DependeciesContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependeciesContainer.swift; sourceTree = "<group>"; };
 		B03260E4258FA8D2009F8DAE /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		B03260E7258FDF81009F8DAE /* CompetitionsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionsListView.swift; sourceTree = "<group>"; };
 		B03260EA258FE088009F8DAE /* CompetitionsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionsListViewModel.swift; sourceTree = "<group>"; };
 		B03260EF258FE907009F8DAE /* TeamsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsScreen.swift; sourceTree = "<group>"; };
 		B03260F3258FE936009F8DAE /* TeamsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsView.swift; sourceTree = "<group>"; };
 		B03260F6258FE980009F8DAE /* TeamsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsViewModel.swift; sourceTree = "<group>"; };
+		B0532F0A25C3E6BF00BCD115 /* FootballService */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FootballService; sourceTree = "<group>"; };
+		B0532F1725C44E9900BCD115 /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		B07C4B76258951FE005D01F4 /* OtusHomeWork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OtusHomeWork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B07C4B79258951FE005D01F4 /* OtusHomeWorkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtusHomeWorkApp.swift; sourceTree = "<group>"; };
 		B07C4B7B258951FE005D01F4 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		B07C4B7D25895201005D01F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B07C4B8025895201005D01F4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B07C4B8225895201005D01F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B07C4B8C25895997005D01F4 /* FootballAPI+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FootballAPI+Extensions.swift"; sourceTree = "<group>"; };
 		B07C4B942589613B005D01F4 /* NewsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsScreen.swift; sourceTree = "<group>"; };
 		B07C4B97258963BE005D01F4 /* CompetitionsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionsScreen.swift; sourceTree = "<group>"; };
 		B07E82D825AF1CE6009399AA /* UIComponents */ = {isa = PBXFileReference; lastKnownFileType = folder; path = UIComponents; sourceTree = "<group>"; };
@@ -64,6 +68,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B07E82DB25AF1F7C009399AA /* UIComponents in Frameworks */,
+				B0532F0F25C3EC1000BCD115 /* FootballService in Frameworks */,
 				B0B448DD25AC384300FCD9B9 /* Networking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -113,6 +118,8 @@
 				B07C4B79258951FE005D01F4 /* OtusHomeWorkApp.swift */,
 				B07C4B7B258951FE005D01F4 /* RootView.swift */,
 				B07E82E225AF8A0C009399AA /* Extensions.swift */,
+				B0532F1725C44E9900BCD115 /* ServiceLocator.swift */,
+				B0117A8925CB3704004C1486 /* DependeciesContainer.swift */,
 				B07C4B9025895A8A005D01F4 /* Data */,
 				B07C4B9125895AA3005D01F4 /* NewsScreen */,
 				B07C4B9225895AD2005D01F4 /* CompetitionsScreen */,
@@ -140,7 +147,6 @@
 		B07C4B9025895A8A005D01F4 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				B07C4B8C25895997005D01F4 /* FootballAPI+Extensions.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -182,8 +188,9 @@
 		B0B448D625AB9AF100FCD9B9 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				B07E82D825AF1CE6009399AA /* UIComponents */,
 				B0B448D725AB9C2600FCD9B9 /* Networking */,
+				B0532F0A25C3E6BF00BCD115 /* FootballService */,
+				B07E82D825AF1CE6009399AA /* UIComponents */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -232,6 +239,7 @@
 			packageProductDependencies = (
 				B0B448DC25AC384300FCD9B9 /* Networking */,
 				B07E82DA25AF1F7C009399AA /* UIComponents */,
+				B0532F0E25C3EC1000BCD115 /* FootballService */,
 			);
 			productName = OtusHomeWork;
 			productReference = B07C4B76258951FE005D01F4 /* OtusHomeWork.app */;
@@ -286,6 +294,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0532F1825C44E9A00BCD115 /* ServiceLocator.swift in Sources */,
 				B0B44A6825ACC0B200FCD9B9 /* CompetitionViewModel.swift in Sources */,
 				B0B44A6C25ACEE2200FCD9B9 /* MatchesView.swift in Sources */,
 				B07E82E025AF8938009399AA /* MatchView.swift in Sources */,
@@ -298,10 +307,10 @@
 				B03260E8258FDF81009F8DAE /* CompetitionsListView.swift in Sources */,
 				B07C4B7C258951FE005D01F4 /* RootView.swift in Sources */,
 				B03260F0258FE907009F8DAE /* TeamsScreen.swift in Sources */,
+				B0117A8A25CB3704004C1486 /* DependeciesContainer.swift in Sources */,
 				B03260F4258FE936009F8DAE /* TeamsView.swift in Sources */,
 				B07C4B98258963BE005D01F4 /* CompetitionsScreen.swift in Sources */,
 				B07E82E325AF8A0C009399AA /* Extensions.swift in Sources */,
-				B07C4B8D25895997005D01F4 /* FootballAPI+Extensions.swift in Sources */,
 				B07C4B7A258951FE005D01F4 /* OtusHomeWorkApp.swift in Sources */,
 				B07E82ED25B0DDF8009399AA /* TeamView.swift in Sources */,
 			);
@@ -492,6 +501,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B0532F0E25C3EC1000BCD115 /* FootballService */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FootballService;
+		};
 		B07E82DA25AF1F7C009399AA /* UIComponents */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = UIComponents;
