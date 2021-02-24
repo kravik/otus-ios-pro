@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Networking
+import FootballService
 
 final class CompetitionViewModel: ObservableObject {
 

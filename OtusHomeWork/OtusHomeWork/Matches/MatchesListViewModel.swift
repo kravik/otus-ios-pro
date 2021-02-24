@@ -6,17 +6,20 @@
 //
 
 import Foundation
-import Networking
+import Combine
+import FootballService
 
 final class MatchesListViewModel: ObservableObject {
-    let competition: Competition
-
     @Published private(set) var matches: [Match] = []
     @Published private(set) var isPageLoading: Bool = false
 
+    private let footballService: FootballService
+    private let competition: Competition
+    private var store = Set<AnyCancellable>()
     private var matchday = 0
 
-    init(competition: Competition) {
+    init(footballService: FootballService, competition: Competition) {
+        self.footballService = footballService
         self.competition = competition
     }
 
@@ -26,19 +29,12 @@ final class MatchesListViewModel: ObservableObject {
         }
         matchday += 1
         isPageLoading = true
-        FootballAPI.getMatchesAuthorized(
-            competitionId: competition.id,
-            dateFrom: nil,
-            dateTo: nil,
-            stage: nil,
-            status: nil,
-            matchday: matchday
-        ) { [weak self] response, error in
-            guard let self = self, let results = response?.matches else {
-                return
-            }
-            self.matches.append(contentsOf: results)
-            self.isPageLoading = false
-        }
+        footballService
+            .matches(competition: competition, matchday: matchday)
+            .receive(on: DispatchQueue.main)
+            .sink { (_) in } receiveValue: { matches in
+                self.matches.append(contentsOf: matches)
+                self.isPageLoading = false
+            }.store(in: &store)
     }
 }

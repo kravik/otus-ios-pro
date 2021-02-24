@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import Networking
+import FootballService
 import UIComponents
 
 struct MatchesView: View {
@@ -22,10 +22,7 @@ struct MatchesView: View {
                         }
                     }
                 }
-
             }
-        }.onAppear {
-            viewModel.loadNext()
         }
     }
 }
@@ -53,11 +50,5 @@ struct MatchCell: View {
             Spacer()
             Image(systemName: "chevron.right")
         }
-    }
-}
-
-struct MatchesView_Previews: PreviewProvider {
-    static var previews: some View {
-        MatchesView(viewModel: .init(competition: .init(id: 1, name: "Italy", lastUpdated: Date(), plan: "TIER")))
     }
 }

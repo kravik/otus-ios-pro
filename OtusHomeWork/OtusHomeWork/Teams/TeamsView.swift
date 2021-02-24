@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import Networking
+import FootballService
 import UIComponents
 
 struct TeamsView: View {

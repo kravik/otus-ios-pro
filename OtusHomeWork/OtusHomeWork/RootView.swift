@@ -17,8 +17,8 @@ final class Router: ObservableObject {
 }
 
 struct RootView: View {
-
     @EnvironmentObject var router: Router
+    @EnvironmentObject var dependeciesContainer: DependeciesContainer
 
     var body: some View {
         TabView(selection: $router.selectedTab) {
@@ -27,7 +27,7 @@ struct RootView: View {
                 Image(systemName: selection == Router.Tab.news ? "newspaper.fill" : "newspaper")
                 Text("News")
             }.tag(Router.Tab.news)
-            CompetitionsScreen().tabItem {
+            CompetitionsScreen(dependeciesContainer: dependeciesContainer).tabItem {
                 Image(systemName: selection == Router.Tab.competitions ? "star.fill" : "star")
                 Text("Competitions")
             }.tag(Router.Tab.competitions)
